@@ -1,7 +1,9 @@
 <h1>All The Campers</h1>
 
+<p>Check out the <%= link_to "Activities Index Page", activities_path %> </p>
+
 <ul>
   <% @campers.each do |camper| %>
-    <li><%= camper.name %></li>
+    <li><%= link_to camper.name, camper_path(camper) %></li>
   <% end %>
 </ul>

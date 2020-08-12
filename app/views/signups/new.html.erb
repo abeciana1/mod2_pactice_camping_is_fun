@@ -1,0 +1,20 @@
+<h1>Signup Form</h1>
+
+<% if flash[:my_errors]%>
+    <% flash[:my_errors].each do |error|%>
+    <p style='color: red;'><%= error %></p><br>
+    <% end %>
+<% end %>
+
+<%= form_for @signup do |f| %>
+    <label>Camper Select: </label>
+    <%= f.collection_select :camper_id, @campers, :id, :name %>
+    <br />
+    <label>Activity Select: </label>
+    <%= f.collection_select :activity_id, @activities, :id, :name %>
+    <br />
+    <label>Time Entry (Choose by hour): </label>
+    <%= f.number_field :time, in: 0..23 %>
+    <br />
+    <%= f.submit %>
+<%end%>
